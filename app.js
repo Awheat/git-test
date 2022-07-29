@@ -37,6 +37,13 @@ const actionCommitFlow = async () => {
 
         await git.commit(`feat: 分支[${current}]自动提交流程`);
 
+        if (current === ROLLBACK_BRANCH.local) {
+            console.log('===> start: 放弃本地更改，接受远程修改')
+            await git.raw(['fetch', '--all']);
+            await git.raw(['reset', '--hard', 'origin/develop']);
+            console.log('===> end: 放弃本地更改，接受远程修改')
+        }
+
         await git.pull();
 
         await git.push('origin', current);
