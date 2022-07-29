@@ -68,7 +68,7 @@ const actionInit = async () => {
             await git.checkout(ROLLBACK_BRANCH.local);
         } else {
             // 如果不存在，切换的同时新建分支从origin/master
-            await git.checkout(['-b', ROLLBACK_BRANCH.local, 'origin/main']);
+            await git.checkout(['-b', ROLLBACK_BRANCH.local, 'origin/master']);
         }
 
         await git.mergeFromTo('origin/master', ROLLBACK_BRANCH.local);
