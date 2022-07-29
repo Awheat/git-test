@@ -37,6 +37,13 @@ const actionCommitFlow = async () => {
 
         await git.commit(`feat: 分支[${current}]自动提交流程`);
 
+        if (current === ROLLBACK_BRANCH.local) {
+            console.log('===> start: 放弃本地更改，接受远程修改')
+            await git.raw(['fetch', '--all']);
+            await git.raw(['reset', '--hard', 'origin/develop']);
+            console.log('===> end: 放弃本地更改，接受远程修改')
+        }
+
         await git.pull();
 
         await git.push('origin', current);
@@ -61,7 +68,7 @@ const actionInit = async () => {
             await git.checkout(ROLLBACK_BRANCH.local);
         } else {
             // 如果不存在，切换的同时新建分支从origin/master
-            await git.checkout(['-b', ROLLBACK_BRANCH.local, 'origin/main']);
+            await git.checkout(['-b', ROLLBACK_BRANCH.local, 'origin/master']);
         }
 
         await git.mergeFromTo('origin/master', ROLLBACK_BRANCH.local);
