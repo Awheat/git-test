@@ -49,7 +49,7 @@ class CreateRollBack {
 
             console.log('===> merge success...');
 
-            await this.commit;
+            await this.commit();
 
             console.log('===> commit success...');
 
@@ -75,7 +75,7 @@ class CreateRollBack {
     /** @desc 提交流程 */
     async commit() {
         try {
-            console.log('===> 1.start: commit...')
+            console.log('===> 1.commit start...')
             const status = await git.status();
 
             const { current } = status;
@@ -95,7 +95,7 @@ class CreateRollBack {
 
             await git.push('origin', current);
 
-            console.log('===> 2.end: commit success...')
+            console.log('===> 2.commit success...')
         } catch (err) {
             console.log('提交流程报错:', err);
         }
