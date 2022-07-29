@@ -78,6 +78,8 @@ const actionInit = async () => {
         await actionCommitFlow();
 
         console.log('===> commit success!');
+
+        await git.checkout(['-']);
     } catch (err) {
         console.log('err:', err);
     }
