@@ -5,7 +5,8 @@
  * @author wuwangcheng@58.com
  * ===========================================
 */
-
+const fs = require('fs');
+const path = require('path');
 const simpleGit = require('simple-git');
 
 const git = simpleGit('./');
@@ -82,7 +83,7 @@ class CreateRollBack {
 
             await git.add('./*');
 
-            await git.commit(`feat: 分支[${current}]自动提交流程`);
+            await git.commit(`feat: 分支[${ROLLBACK_BRANCH.local}]自动提交流程`);
 
             if (current === ROLLBACK_BRANCH.local) {
                 console.log('===> start: 1.1放弃本地更改，接受远程修改')
@@ -100,7 +101,45 @@ class CreateRollBack {
             console.log('提交流程报错:', err);
         }
     }
+
+    /** @desc 写入代码 */
+    async getCode() {
+        return `
+            const aaa = require('xx');
+
+            aaa.init({
+                local:'dev',
+                remote: 'dev'
+            })
+        `
+    }
+
+    /** @desc 创建文件 */
+    async create() {
+        try {
+            const filePath = path.join(__dirname, '/test.js');
+
+            const code = await this.getCode();
+
+            fs.access(filePath, fs.constants.F_OK, (err) => {
+                if (err) {
+                    fs.writeFile('test.js', `${code} `, 'utf8', function (error) {
+                        if (error) {
+                            console.log('写入失败:', error);
+                            return;
+                        }
+                        console.log('写入成功');
+                    })
+                }
+            });
+
+        } catch (err) {
+            console.log('创建文件报错:', err);
+        }
+    }
 }
 
 // 启动
-new CreateRollBack();
+const cb = new CreateRollBack();
+
+//cb.create();

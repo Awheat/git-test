@@ -1,23 +1,25 @@
 {
-  "name": "git-test",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Awheat/git-test.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Awheat/git-test/issues"
-  },
-  "homepage": "https://github.com/Awheat/git-test#readme",
-  "dependencies": {
-    "simple-git": "^3.10.0"
-  }
+    "name": "git-test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "rollback": "node rollback.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Awheat/git-test.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Awheat/git-test/issues"
+    },
+    "homepage": "https://github.com/Awheat/git-test#readme",
+    "dependencies": {
+        "naver-rollback": "^1.0.8",
+        "simple-git": "^3.10.0"
+    }
 }
