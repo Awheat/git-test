@@ -10,6 +10,6 @@ const nr = require('naver-rollback');
  * }
 */
 nr.init({
-    local: 'rollback_dev1',
-    remote: 'origin/rollback_dev1'
+    local: 'rollback_dev2',
+    remote: 'origin/rollback_dev2'
 });
