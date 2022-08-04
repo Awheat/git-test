@@ -4,12 +4,15 @@ const nr = require('naver-rollback');
 
 /**
  * @desc 默认回滚分支配置
- * 可选参数: options = { 
+ * @method init()
+ * @params options = { 
  *    local: 'rollback_dev',
- *    remote: 'origin/rollback_dev'
+ *    remote: 'origin/rollback_dev',
+ *    mergeFrom: 'origin/master'
  * }
 */
 nr.init({
-    local: 'rollback_dev2',
-    remote: 'origin/rollback_dev2'
+    local: 'rollback_dev3',
+    remote: 'origin/rollback_dev3',
+    mergeFrom: 'origin/master'
 });

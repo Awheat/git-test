@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "rollback": "node rollback.js"
+        "fr": "node rollback.js"
     },
     "repository": {
         "type": "git",
@@ -19,7 +19,7 @@
     },
     "homepage": "https://github.com/Awheat/git-test#readme",
     "dependencies": {
-        "naver-rollback": "^1.0.9",
+        "naver-rollback": "^1.1.0",
         "simple-git": "^3.10.0"
     }
 }
