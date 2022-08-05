@@ -11,4 +11,8 @@ const { init } = require('naver-rollback');
  *    mergeFrom: 'origin/master'
  * }
 */
-init();
+init({
+    local: 'rollback_dev4',
+    remote: 'origin/rollback_dev4',
+    mergeFrom: 'origin/master'
+});
