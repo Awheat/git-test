@@ -19,7 +19,7 @@
     },
     "homepage": "https://github.com/Awheat/git-test#readme",
     "dependencies": {
-        "naver-rollback": "^1.1.4",
+        "naver-rollback": "^1.1.6",
         "simple-git": "^3.10.0"
     }
 }

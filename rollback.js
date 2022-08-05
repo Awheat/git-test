@@ -1,6 +1,6 @@
 
 /** @desc 快速生成回滚分支入口 */
-const nr = require('naver-rollback');
+const { init } = require('naver-rollback');
 
 /**
  * @desc 默认回滚分支配置
@@ -11,4 +11,4 @@ const nr = require('naver-rollback');
  *    mergeFrom: 'origin/master'
  * }
 */
-nr.init();
+init();
